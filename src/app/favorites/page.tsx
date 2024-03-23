@@ -1,6 +1,6 @@
 import cloudinary from "cloudinary";
 
-import ImagesGrid from "../gallery/ImagesGrid";
+import FavoritesList from "./FavoritesList";
 import { SearchResults } from "../gallery/page";
 
 async function FavoritePage() {
@@ -18,16 +18,7 @@ async function FavoritePage() {
           <h1 className="text-4xl font-bold">FAVORITE IMAGES</h1>
         </div>
         <div className="grid grid-cols-4 gap-4">
-          {results?.resources.map((result) => (
-            <ImagesGrid
-              key={result.public_id}
-              path="/favorites"
-              imageData={result}
-              width={400}
-              height={300}
-              alt="Description of my image"
-            />
-          ))}
+          <FavoritesList initialResources={results.resources} />
         </div>
       </div>
     </section>
