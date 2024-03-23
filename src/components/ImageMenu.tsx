@@ -1,7 +1,7 @@
 "use client";
 
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
-import { FolderClosed, Menu } from "lucide-react";
+import {  Menu } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -9,8 +9,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { AlbumModal } from "./AlbumModal";
+import { SearchResults } from "@/app/gallery/page";
 
-export default function DropdownMenuCheckboxes() {
+export default function DropdownMenuCheckboxes({
+  image,
+}: {
+  image: SearchResults;
+}) {
   return (
     <div className="absolute top-2 right-2">
       <DropdownMenu>
@@ -19,10 +25,12 @@ export default function DropdownMenuCheckboxes() {
             <Menu />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-32">
-          <DropdownMenuItem className="flex items-center">
-            <FolderClosed className="mr-2 h-4 w-6" />
-            <span>Add to Album</span>
+        <DropdownMenuContent className="w-36">
+          <DropdownMenuItem
+            asChild
+            className="flex items-center hover:cursor-pointer hover:bg-gray-800"
+          >
+            <AlbumModal image={image} />
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

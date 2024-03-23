@@ -46,7 +46,7 @@ function CloudinaryImage(
           }}
         />
       )}
-      <ImageMenu />
+      <ImageMenu image={props.imageData} />
     </div>
   );
 }

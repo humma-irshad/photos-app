@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import cloudindary from "cloudinary";
 
 export async function setAsFavorite(
